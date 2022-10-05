@@ -4,6 +4,18 @@ const container = document.querySelector("#container");
 let countgen = 0;
 let cells = new Array(52).fill(0).map(() => new Array(52).fill(0));
 
+let _resume = document.querySelector('.resume');
+let _play = document.querySelector('.play');
+let _pause = document.querySelector('.pause');
+let _clear = document.querySelector('.clear');
+let _randomize = document.querySelector('.Randomize');
+let _customMode = document.querySelector('.customMode');
+let _customPttrns = document.querySelector('.customPttrns');
+       
+            
+
+
+
 
 function checkNeighbors() {
     //Funtion call to fill the array with random booleans
@@ -95,15 +107,18 @@ function makeRows(rows, cols) {
   container.style.setProperty('--grid-rows', rows);
   container.style.setProperty('--grid-cols', cols);
   for (i = 0; i < (rows * cols); i++) {
-    //Every div is a cell
-    let cell = document.createElement("div");
-    //Every cell is a grid-item
-    container.appendChild(cell).className = "grid-item";
+    for (j = 0; j < cols; j++){
+        //Every div is a cell
+        let cell = document.createElement("div");
+        //Every cell is a grid-item
+        container.appendChild(cell).className = "grid-item";
+        }
+    
   };
 };
 
 function clearBoard() {}
--
+
 //Function that will initiate the cells values when called
 function randomizer() {
     for(let i = 1; i < cells.length-1; i ++){
